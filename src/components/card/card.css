@@ -1,0 +1,48 @@
+.card-wrapper {
+  text-align: center;
+  background-color: #61dafb;
+  padding: 20px;
+
+}
+
+.card .unit-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border: 2px solid grey;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.unit-avatar img {
+  max-width: 70%;
+  max-height: 70%;
+}
+
+.unit-name input {
+  border: 1px solid red
+}
+
+.unit-data {
+  padding: 20px 0;
+  /* heigth: 200px; */
+}
+
+#unit-delete-bttn {
+  color: red;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#unit-comment-area {
+  width: 380px;
+  height: 500px;
+}
+

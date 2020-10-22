@@ -16,7 +16,7 @@
   background-color: grey;
 }
 
-.robots-list ul {
+.aliens-list ul {
   margin: 0;
   padding: 10px 0 0 0;
   list-style: none;
@@ -33,13 +33,13 @@
   color: red
 }
 
-.robots-list ul li {
+.aliens-list ul li {
   padding: 5px 0;
   background-color: darkcyan;
   cursor: pointer;
 }
 
-.robots-list ul li.active {
+.aliens-list ul li.active {
   background-color: red;
 }
 

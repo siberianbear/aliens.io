@@ -13,8 +13,10 @@ const filenamebase = 'im'
 const ext = '.png'
 const totalnum = 11
 
-const getAvatar = () => {
-  const getImg = Math.floor(Math.random()*totalnum)
+const getAvatar = (num) => {
+  // random image
+  // const getImg = Math.floor(Math.random()*totalnum)
+  const getImg = num
   const theImg = path+filenamebase+getImg+ext
 
   // if static image
@@ -28,11 +30,19 @@ const getAvatar = () => {
 
 function card(props) {
 
-  // const [editable, setEditable] = React.useState(false);
+  // console.log(props.name)
+  // console.log(props.avatar)
 
-  // const startEditName = () => {
+  let switcher = (arg) => {return !arg}
+  switcher(true)
+  const editName = () => {
+    console.log("triggered")
+    document.getElementById("aliennameinput").setAttribute("disabled", false);
+    // el.
+    switcher(false)
+  }
 
-  // }
+  
 
   return (
     <div className="card-wrapper">
@@ -40,14 +50,14 @@ function card(props) {
         <div className="card">
 
           <header>
-            <div className="unit-avatar">
+            <div className="unit-avatar" onClick={(text) => editName(!text.target.value)}>
               {/* <img src={require('./imgs/im0.png')} ></img> */}
-              <img src={getAvatar()} alt=""></img>
+              <img src={getAvatar(props.avatar)} alt=""></img>
               {/* <img src={require(""+getAvatar())} ></img> */}
             </div>
 
-            <div className="unit-name">
-              <Input placeholder="Placeholder" multiline disabled disableUnderline></Input>
+            <div className="unit-name" >
+              <Input id="aliennameinput" placeholder={props.name} disabled={switcher()} disableUnderline >{props.id}</Input>
             </div>
 
             <div id="unit-delete-bttn">

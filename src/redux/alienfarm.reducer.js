@@ -5,7 +5,6 @@ const INITIAL_STATE = {
 };
 
 const alienreducer = (state = INITIAL_STATE, action) => {
-  // console.log(state)
 
   switch (action.type) {
 
@@ -14,20 +13,10 @@ const alienreducer = (state = INITIAL_STATE, action) => {
       return state
 
     case EDITALIEN:
-      console.log("editing " + action.alien + " + " + action.name)
-
       const newArr = state.aliensCrew.slice()
       var foundIndex = newArr.findIndex(x => x.id == action.alien);
-      // items[foundIndex] = item;
-      // console.log(state.aliensCrew[foundIndex])
-      // console.log(state.aliensCrew[foundIndex].name = action.name)
-      // state.aliensCrew.push(action.alien)
       newArr[foundIndex].name = action.name
       newArr[foundIndex].path = '/alien/'+action.alien+'/'+action.name
-
-
-      // return state
-      // console.log(state.aliensCrew)
       return {...state, aliensCrew: newArr};
 
     case REMOVEALIEN:

@@ -58,38 +58,20 @@ function App(props) {
   const Alien = ({ data }) => {
 
     return (
-      // <div className="todo">
-      //   {todo.text}
-      // </div>
-      // <Route path="/robot/:id" component={Card} />
-      // <Route path="/robot/${todo.newRobotObj.name}" exact component={Card} />
+      // <Route path="/alien/:id" component={Card} />
+      // <Route path="/alien/${alien.newRobotObj.name}" exact component={Card} />
 
       // <Route path={"/alien/"+data.id+"/"+data.name} render={(props) => (
       <Route path={data.path} render={(props) => (
         <Card {...props} name={data.name} avatar={data.avatar} id={data.id} />
       )} />
       
-      // <Card obj={todo} />
+ 
     );
   };
 
-// before of redux
-  // const addAlien_r = () => {
-  //   const newAlien = {
-  //     id: uniqueId(),
-  //     name: document.getElementById('alienname').value,
-  //     avatar: generateAvatar(),
-  //   }
-
-  //   const updateTeam = [...aliens, newAlien];
-  //   updateAliens(updateTeam);
-  //   setModalOpen(false);
-  //   setModalButtonLock(true);
-  //   // console.log("robot " + document.getElementById('robotname').value + " has been added")
-  // }
-
   const addAlien = () => {
-    // console.log(the)
+
     const newAlien = {
       id: uniqueId(),
       name: document.getElementById('alienname').value,
@@ -98,7 +80,7 @@ function App(props) {
 
     let newWithPath = {...newAlien, path: "/alien/" + newAlien.id + "/" + newAlien.name}
 
-    // console.log(props)
+
     props.ADDALIEN(newWithPath)
 
     setModalOpen(false);
@@ -113,20 +95,14 @@ function App(props) {
     let listArr = Array.from(list)
     
     listArr.map(it => {
-      // total devastation
-      // item.remove("active")
-      // console.log(it.children[0])
       it.children[0].classList.remove("active")
     })
 
     item.target.classList.add("active")
   };
 
-// console.log(props.aliensCrew)
 
   const searching = () => {
-
-    // console.log(props)
 
     let query = document.getElementById("search-input").value
       if (query !== "") {
@@ -134,20 +110,6 @@ function App(props) {
         // console.log(query)
         props.FILTERALIENS(query)
       }
-
-    // if (!document.getElementById('search-input')) {
-    //   console.log("null")
-    //   let query = document.getElementById("search-input").value
-    //   if (query !== "") {
-    //     activeSearch(true)
-    //     console.log(query)
-    //     props.FILTERALIENS(query)
-    //   }
-    // }
-    // else {
-    //   console.log("not null")
-
-    // }
 
   }
 
@@ -187,8 +149,8 @@ function App(props) {
                           <li key={alien.id} onClick={e => chooseItem(e)}>
                             {alien.name}
                           </li>
-                          </Link>
-                        // </Link>
+                        </Link>
+
                       )
                         
                     })
@@ -207,20 +169,6 @@ function App(props) {
                     <h1>{props.aliensCrew.length === 0 ? "Add new alien" : "Select an alien"}</h1>
                   </Route>
                 
-                {/* <Route path="/robot/:id" component={Card} /> */}
-
-                {/* { !props.aliensCrew.length ?
-                  <Route render={({ history}) => (
-                    <button
-                      type='button'
-                      onClick={() => { history.push('/') }}
-                    >
-                      Click Me!
-                    </button>
-                  )} />
-                : null } */}
-
-                {/* <Switch> */}
                 { !props.aliensCrew.length
                   ? <Redirect to="/" />
                   : props.aliensCrew.map((alien, index) => (
@@ -231,14 +179,7 @@ function App(props) {
                     />
                   ))
                 }
-{/* </Switch> */}
-                {/* {props.aliensCrew.map((alien, index) => (
-                  <Alien
-                    key={index}
-                    index={index}
-                    data={alien}
-                  />
-                ))} */}
+
             </div>
 
           </Grid>
@@ -271,10 +212,7 @@ function App(props) {
             />
 
           <div id="dialog-footer">
-          {/* onClick={addAlien} >Create</Button> */}
             <Button id="dialog-build-bttn" variant='contained' color="secondary" disabled={locked} onClick={addAlien} >Create</Button>
-            
-            
           </div>
             
         </DialogContent>
@@ -286,11 +224,6 @@ function App(props) {
 }
 
 const mapStateToProps = state => {
-  // return {
-  //   id: state.alienfarm.id,
-  //   name: state.alienfarm.name,
-  //   avatar: state.alienfarm.avatar,
-  // }
   return state.alienfarm
 }
 

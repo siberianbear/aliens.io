@@ -9,7 +9,7 @@ export const alienADD = (alien) => {
 };
 
 export const alienRENAME = (alien, name) => {
-    console.log("action!" + alien + " & " + name)
+    // console.log("action with: " + alien + " & " + name)
     return {
         type: EDITALIEN,
         alien, name

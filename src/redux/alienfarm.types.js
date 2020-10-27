@@ -1,0 +1,4 @@
+export const ADDALIEN = 'ADDALIEN';
+export const REMOVEALIEN = 'REMOVEALIEN';
+export const EDITALIEN = 'EDITALIEN';
+export const FILTERALIENS = 'FILTERALIENS';

@@ -1,8 +1,7 @@
 .card-wrapper {
   text-align: center;
-  background-color: #61dafb;
+  /* background-color: #61dafb; */
   padding: 20px;
-
 }
 
 .card .unit-avatar {
@@ -21,9 +20,9 @@
   max-height: 70%;
 }
 
-.unit-name input {
+/* .unit-name input {
   border: 1px solid red
-}
+} */
 
 .unit-data {
   padding: 20px 0;
